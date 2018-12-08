@@ -15,19 +15,25 @@
             <table class="table table-striped table-sm">
                 <thead>
                 <tr>
+                @if($model!=null)
                     @foreach($model->toArray() as $key => $value)
                         <th>{{$key}}</th>
 
                     @endforeach
+                 @endif
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($records->toArray() as $key => $value)
                     <tr>
+                    @if($records[$key]->toArray()!=null)
+                    {
+            
                         @foreach($records[$key]->toArray() as $rec=>$value)
                             <td>{{$value}}</td>
                         @endforeach
-
+                    }
+                    @endif
                             <td><a href="/deleteRecord/{{$nameModel}}/{{$id[$key]}}">Удалить</a></td>
                             <td><a href="/viewRecord/{{$nameModel}}/{{$id[$key]}}">Редактировать</a></td>
                 @endforeach

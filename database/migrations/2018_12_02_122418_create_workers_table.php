@@ -12,13 +12,13 @@ class CreateWorkersTable extends Migration
      * @return void
      */
     public function up()
-    { php artisam make:model Worker
+    { //php artisam make:model Worker
         Schema::create('workers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('FIO');
             $table->text('Phone');
 
-            $table->integer('positions_id')->unsigned();
+            $table->integer('position_id')->unsigned();
             //$table->foreign('positions_id')->references('id')->on('Positions');
             $table->timestamps();
         });

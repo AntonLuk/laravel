@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/createPositions', 'PositionsController@create') ;
+Route::post('/createConstructors', 'constructorsController@create') ;
 Route::get('/addRecord/{{nameModel}}',function ()
 {
 

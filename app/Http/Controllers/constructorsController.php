@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\constructors;
 
 class constructorsController extends Controller
 {
@@ -19,5 +20,13 @@ class constructorsController extends Controller
             $id[$i]=$records[$i]->id;
         }
         return view('view',compact('model','records','title','id','nameModel'));
+    }
+    public function create(Request $request)
+    {
+        $record = new constructors;
+        $record->Name = $request->Name;
+        
+        $record->save();
+        return redirect('/constructors');
     }
 }
