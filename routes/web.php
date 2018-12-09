@@ -11,8 +11,14 @@
 |
 */
 use App\Positions;
+use App\Worker;
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/work', function () {
+    $worker=new Worker;
+    $table=$worker->all();
+    return $table;
 });
 Route::post('/createPositions', 'PositionsController@create') ;
 Route::get('/addRecord/{{nameModel}}',function ()

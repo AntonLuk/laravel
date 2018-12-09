@@ -6,21 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Worker extends Model
 {
-    function position() {
-        return $this->belongsTo("App/Positions", "positions_id");
+//    function position() {
+//        return $this->belongsTo("App/Positions", "positions_id");
+//    }
+    public function Positions()
+    {
+        return $this->hasMany('App\Positions','foreign_key');
     }
 }
 
 
-$worker = Worker::selectRaw('id as `Номер`, positions.Name as Должность')
-    ->where('id', ...)
-    ->leftJoin()
-
- $workers = Worker::paginate(10);
-$workers->map(function ($worker) {
-   $position = $worker->position;
-   $worker = $worker-toArray();
-   $worker['position_name'] = $position->Name;
-   unset($worker->positions_id);
-   return $worker;
-});
+//$worker = Worker::selectRaw('id as `Номер`, positions.Name as Должность')
+//    ->where('id', ...)
+//    ->leftJoin()
+//
+// $workers = Worker::paginate(10);
+//$workers->map(function ($worker) {
+//   $position = $worker->position;
+//   $worker = $worker-toArray();
+//   $worker['position_name'] = $position->Name;
+//   unset($worker->positions_id);
+//   return $worker;
