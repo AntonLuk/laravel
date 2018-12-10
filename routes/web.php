@@ -21,6 +21,7 @@ Route::get('/work', function () {
     return $table;
 });
 Route::post('/createPositions', 'PositionsController@create') ;
+Route::post('/createConstructors', 'constructorsController@create') ;
 Route::get('/addRecord/{{nameModel}}',function ()
 {
 
